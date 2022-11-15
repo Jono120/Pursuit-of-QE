@@ -1,13 +1,18 @@
 ﻿@page
 @model GroupFourIndexModel
 @{
-    ViewData["Title"] = "Team 1";
+    ViewData["Title"] = "Team 4";
 }
+
 
 <div class="text-center .div-background">
     @* The below is the style for each of the pages, but with some differences for each one. *@
-    <h1>Welcome Team 1!</h1>
+    <h1>Welcome @ViewData["Title"]!</h1>
     <p>
-        Below you will find your challenges, these will be easy for all you smart people!
+        @ViewData["Title"], below you will find your challenges, these will be easy for all you smart people!<br />
+        I hope you have your walking shoes on &#128513;. <br />
+        <br />
+        With this challenge you will be taken across the City, you will need to find the objects or items resembling the task.<br />
+        During these tasks you will need to take photos and upload them to this portal under the corresponding boxes.<br />
     </p>
 </div>
