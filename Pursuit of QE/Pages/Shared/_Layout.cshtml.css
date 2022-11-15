@@ -9,8 +9,8 @@ body {
 
 .div-background {
     background-image: url(.../wwwroot/images/close-up-background-texture-ancient-egyptian-papyrus-byblos-paper-reed-document_273651-1190.jpg);
-    height: 100px;
-    width: 100px;
+    height: auto;
+    width: auto;
 }
 
 a.navbar-brand {
