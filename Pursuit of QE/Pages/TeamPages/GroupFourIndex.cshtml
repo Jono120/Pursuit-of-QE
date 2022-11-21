@@ -4,7 +4,6 @@
     ViewData["Title"] = "Team 4";
 }
 
-
 <div class="text-center .div-background">
     @* The below is the style for each of the pages, but with some differences for each one. *@
     <h1>Welcome @ViewData["Title"]!</h1>
@@ -14,6 +13,7 @@
         <br />
         With this challenge you will be taken across the City, you will need to find the objects or items resembling the task.<br />
         During these tasks you will need to take photos and upload them to this portal under the corresponding boxes.<br />
+        <br />
     </p>
 
     @*Fields for the filling*@
@@ -22,7 +22,6 @@
         You will also need to fill in the items name that you think it is based on the clue.
     </p>
 </div>
-
 
 @* Form boxes for each page, will reformat based on the team *@
 <div class="py-3 bg-light rounded-3">
@@ -38,24 +37,193 @@
             </section>
         </div>
 
+        @* Team challenges and name*@
         <div class="row col-md-12">
             <div class="col-md-10 align-content-center container">
                 <form class="form-group" method="post">
                     <div>
                         <hr class="my-4">
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="partyName">Team Name</span>
-                            <input type="text" class="form-control" aria-describedby="partyName" required>
+                            <span class="input-group-text" id="teamName">Team Name</span>
+                            <input type="text" class="form-control" aria-describedby="teamName" required>
                         </div>
                     </div>
 
-                    <div>
-                        <hr class="my-4">
-                        @* Tasks Boxes *@
-                        <h5 class="mb-3">Task One!</h5>
-                        <p>For this task you need to make it to this location and do the following with your team:</p>
-                        <label for="exampleTaskOne" class="form-label">What is this location?</label>
-                        <textarea class="form-control" id="exampleTaskOneTextarea1" rows="1"></textarea>
+                    @* Message for the team *@
+                    <p>For these tasks you need to make it to this location and do the following with your team:<br /></p>
+
+                    @* Accordion for the task messages *@
+                    <div class="accordion accordion-flush" id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"> Task One! </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                <div class="accordion-body">
+                                    <p>
+                                        You are to find the location that closet resembles this place.
+                                    </p>
+                                    <div class="text-center">
+                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                    </div>
+                                    <label for="taskOne" class="form-label">What is this location?</label>
+                                    <textarea class="form-control" id="taskOneTextarea" rows="1"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo"> Task Two! </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                                <div class="accordion-body">
+                                    <p>
+                                        You are to find the location that closet resembles this place.
+                                    </p>
+                                    <div class="text-center">
+                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                    </div>
+                                    <label for="taskTwo" class="form-label">What is this location?</label>
+                                    <textarea class="form-control" id="taskTwoTextarea" rows="1"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree"> Task Three! </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                                <div class="accordion-body">
+                                    <p>
+                                        You are to find the location that closet resembles this place.
+                                    </p>
+                                    <div class="text-center">
+                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                    </div>
+                                    <label for="taskThree" class="form-label">What is this location?</label>
+                                    <textarea class="form-control" id="taskThreeTextarea" rows="1"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour"> Task Four! </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+                                <div class="accordion-body">
+                                    <p>
+                                        You are to find the location that closet resembles this place.
+                                    </p>
+                                    <div class="text-center">
+                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                    </div>
+                                    <label for="taskFour" class="form-label">What is this location?</label>
+                                    <textarea class="form-control" id="taskFourTextarea" rows="1"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive"> Task Five! </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
+                                <div class="accordion-body">
+                                    <p>
+                                        You are to find the location that closet resembles this place.
+                                    </p>
+                                    <div class="text-center">
+                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                    </div>
+                                    <label for="taskFive" class="form-label">What is this location?</label>
+                                    <textarea class="form-control" id="taskFiveTextarea" rows="1"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingSix">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix"> Task Six! </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSix">
+                                <div class="accordion-body">
+                                    <p>
+                                        You are to find the location that closet resembles this place.
+                                    </p>
+                                    <div class="text-center">
+                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                    </div>
+                                    <label for="taskSix" class="form-label">What is this location?</label>
+                                    <textarea class="form-control" id="taskSixTextarea" rows="1"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingSeven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false" aria-controls="panelsStayOpen-collapseSeven"> Task Seven! </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+                                <div class="accordion-body">
+                                    <p>
+                                        You are to find the location that closet resembles this place.
+                                    </p>
+                                    <div class="text-center">
+                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                    </div>
+                                    <label for="taskSeven" class="form-label">What is this location?</label>
+                                    <textarea class="form-control" id="taskSevenTextarea" rows="1"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingEight">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="false" aria-controls="panelsStayOpen-collapseEight"> Task Eight! </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingEight">
+                                <div class="accordion-body">
+                                    <p>
+                                        You are to find the location that closet resembles this place.
+                                    </p>
+                                    <div class="text-center">
+                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                    </div>
+                                    <label for="taskEight" class="form-label">What is this location?</label>
+                                    <textarea class="form-control" id="taskEightTextarea" rows="1"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingNine">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseNine" aria-expanded="false" aria-controls="panelsStayOpen-collapseNine"> Task Nine! </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseNine" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingNine">
+                                <div class="accordion-body">
+                                    <p>
+                                        You are to find the location that closet resembles this place.
+                                    </p>
+                                    <div class="text-center">
+                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                    </div>
+                                    <label for="taskNine" class="form-label">What is this location?</label>
+                                    <textarea class="form-control" id="taskNineTextarea" rows="1"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingTen">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="false" aria-controls="panelsStayOpen-collapseTen"> Task Ten! </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseTen" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTen">
+                                <div class="accordion-body">
+                                    <p>
+                                        You are to find the location that closet resembles this place.
+                                    </p>
+                                    <div class="text-center">
+                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                    </div>
+                                    <label for="taskTen" class="form-label">What is this location?</label>
+                                    <textarea class="form-control" id="taskTenTextarea" rows="1"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="py-2 d-grid gap-2 d-md-flex justify-content-md-end">
                         <button class="btn btn-primary btn-lg" type="submit">Submit</button>
@@ -72,4 +240,24 @@
         document.forms[0].reset();
         $("input:checkbox").prop('checked', false);
     }
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
 </script>
