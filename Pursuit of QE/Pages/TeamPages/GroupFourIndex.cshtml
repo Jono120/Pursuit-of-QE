@@ -22,3 +22,54 @@
         You will also need to fill in the items name that you think it is based on the clue.
     </p>
 </div>
+
+
+@* Form boxes for each page, will reformat based on the team *@
+<div class="py-3 bg-light rounded-3">
+    <div class="container">
+        <div class="row col-md-12">
+            <section class="py-4 text-center container">
+                <div class="row py-lg-4">
+                    <div class="col-lg-6 col-md-8 mx-auto">
+                        <h2 class="fw-normal text-center">Welcome @ViewData["Title"]!</h2>
+                        <p class="lead text-muted">During this challenge you will need to fill out each box below, and upload photos based on these.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="row col-md-12">
+            <div class="col-md-10 align-content-center container">
+                <form class="form-group" method="post">
+                    <div>
+                        <hr class="my-4">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="partyName">Team Name</span>
+                            <input type="text" class="form-control" aria-describedby="partyName" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <hr class="my-4">
+                        @* Tasks Boxes *@
+                        <h5 class="mb-3">Task One!</h5>
+                        <p>For this task you need to make it to this location and do the following with your team:</p>
+                        <label for="exampleTaskOne" class="form-label">What is this location?</label>
+                        <textarea class="form-control" id="exampleTaskOneTextarea1" rows="1"></textarea>
+                    </div>
+                    <div class="py-2 d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+                        <button type="button" class="btn btn-secondary btn-lg" onclick="resetForm()">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function resetForm() {
+        document.forms[0].reset();
+        $("input:checkbox").prop('checked', false);
+    }
+</script>
