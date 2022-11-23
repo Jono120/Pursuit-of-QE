@@ -30,7 +30,7 @@
             <section class="py-4 text-center container">
                 <div class="row py-lg-4">
                     <div class="col-lg-6 col-md-8 mx-auto">
-                        <h2 class="fw-normal text-center">Welcome @ViewData["Title"]!</h2>
+                        <h2 class="fw-normal text-center">@ViewData["Title"]!</h2>
                         <p class="lead text-muted">During this challenge you will need to fill out each box below, and upload photos based on these.</p>
                     </div>
                 </div>
@@ -68,6 +68,8 @@
                                     </div>
                                     <label for="taskOne" class="form-label">What is this location?</label>
                                     <textarea class="form-control" id="taskOneTextarea" rows="1"></textarea>
+                                    <label for="fileUploadOne">Did you take a photo? Upload here:</label><br />
+                                    <input type="file" id="fileUploadOne" name="fileUploadOne" accept="image/*" /><br /><br />
                                 </div>
                             </div>
                         </div>
@@ -238,7 +240,6 @@
 <script>
     function resetForm() {
         document.forms[0].reset();
-        $("input:checkbox").prop('checked', false);
     }
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function () {
