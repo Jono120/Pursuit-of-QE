@@ -14,6 +14,12 @@ namespace Pursuit_of_QE.Pages.TeamPages
 {
     public class GroupOneIndexModel : PageModel
     {
+        private readonly ILogger<IndexModel> _logger;
+
+        public GroupOneIndexModel(ILogger<IndexModel> logger)
+        {
+            _logger = logger;
+        }
         public void OnGet()
         {
         }

@@ -224,7 +224,26 @@
                                 </div>
                             </div>
                         </div>
+                        @* Task 11 - Pirate Challenge *@
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingEleven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEleven" aria-expanded="false" aria-controls="panelsStayOpen-collapseEleven"> Final Task! </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseEleven" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingEleven">
+                                <div class="accordion-body">
+                                    <p>
+                                        You are to find the location that closet resembles this place.
+                                    </p>
+                                    <div class="text-center">
+                                        <img src="/images/locations/timezone.png" class="rounded" style="width:400px; height:400px">
+                                    </div>
+                                    <label for="taskEleven" class="form-label">What is this location?</label>
+                                    <textarea class="form-control" id="taskElevenTextarea" rows="1"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    @* Final Submission Buttons *@
                     <div class="py-2 d-grid gap-2 d-md-flex justify-content-md-end">
                         <button class="btn btn-primary btn-lg" type="submit">Submit</button>
                         <button type="button" class="btn btn-secondary btn-lg" onclick="resetForm()">Reset</button>
