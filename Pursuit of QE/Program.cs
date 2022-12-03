@@ -2,11 +2,23 @@
 using Microsoft.Extensions.DependencyInjection;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
+using Microsoft.Azure.Cosmos;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+//CosmosDb application connection strings, update where needed
+//string connectionString = "AccountEndpoint=https­://dp420.documents.azure.com:443/;AccountKey=fDR2ci9QgkdkvERTQ==";
+//CosmosClient client = new(connectionString);
+
+//AccountProperties account = await client.ReadAccountAsync();
+
+//Database database = client.GetDatabase("");
+//Container container = database.GetContainer("");
+
+//above is the application connection for the CosmosDb
 
 var app = builder.Build();
 
