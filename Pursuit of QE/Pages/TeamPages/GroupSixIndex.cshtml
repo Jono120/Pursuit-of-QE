@@ -16,7 +16,7 @@
         <br />
     </p>
 
-    @*Fields for the filling*@
+    @*Fields for the filling with userrsz*@
     <p>
         For the tasks below you will need to take photos with your phone cameras and then input them into the boxes below.<br />
         You will also need to fill in the items name that you think it is based on the clue.
@@ -43,17 +43,19 @@
                 <form class="form-group" method="post">
                     <div>
                         <hr class="my-4">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="teamName">Team Name</span>
-                            <input type="text" class="form-control" aria-describedby="teamName" required>
-                        </div>
+                        @*<div class="input-group mb-3">
+                        <span class="input-group-text" id="teamName">Team Name</span>
+                        <input type="text" class="form-control" aria-describedby="teamName" required>
+                        </div>*@
                     </div>
 
                     @* Message for the team *@
                     <p>For these tasks you need to make it to this location and do the following with your team:<br /></p>
 
                     @* Accordion for the task messages *@
+
                     <div class="accordion accordion-flush" id="accordionPanelsStayOpenExample">
+                        @* Task 1 - Lordly Lions Challenge *@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"> Task One! </button>
@@ -61,16 +63,25 @@
                             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
                                 <div class="accordion-body">
                                     <p>
-                                        You are to find the location that closet resembles this place.
+                                        You are to find the location of the Green Lions standing guard of someones tomb.<br />
+                                        When you have found this location, you are to take a photo besides them as a team, standing in your proudest Lion pose.<br />
+                                        Hint: This tomb also has a noble stead atop it.
                                     </p>
                                     <div class="text-center">
-                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                        @*<img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">*@
                                     </div>
-                                    <label for="taskOne" class="form-label">What is this location?</label>
-                                    <textarea class="form-control" id="taskOneTextarea" rows="1"></textarea>
+
+                                    <label for="taskOne" class="form-label">Where are the Lordly Lions?</label>
+                                    <textarea class="form-control" id="taskOneTextarea" rows="1" required></textarea>
+
+                                    <label for="fileUploadOne">Did you find the Lordly Lions? Upload here:</label><br />
+                                    <input type="file" id="fileUploadOne" name="fileUploadOne" accept="image/*" /><br /><br />
+                                    <div class="invalid-feedback">Please put your answer in</div>
                                 </div>
                             </div>
                         </div>
+
+                        @* Task 2 - Man with Dog Challenge *@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo"> Task Two! </button>
@@ -78,16 +89,24 @@
                             <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                                 <div class="accordion-body">
                                     <p>
-                                        You are to find the location that closet resembles this place.
+                                        For this task you are to find a man walking a dog, hint: he has a cane.<br />
+                                        As a team, you are to take a photo with said man and dog, with your best foot forward.
                                     </p>
                                     <div class="text-center">
-                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                        @*<img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">*@
                                     </div>
-                                    <label for="taskTwo" class="form-label">What is this location?</label>
-                                    <textarea class="form-control" id="taskTwoTextarea" rows="1"></textarea>
+
+                                    <label for="taskTwo" class="form-label">Who is this Man, and where is he?</label>
+                                    <textarea class="form-control" id="taskTwoTextarea" rows="1" required></textarea>
+
+                                    <label for="fileUploadTwo">Did you find the Man and his Dog? Upload here:</label><br />
+                                    <input type="file" id="fileUploadTwo" name="fileUploadTwo" accept="image/*" /><br /><br />
+                                    <div class="invalid-feedback">Please put your answer in</div>
                                 </div>
                             </div>
                         </div>
+
+                        @* Task 3 - Lobster Tail Challenge *@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingThree">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree"> Task Three! </button>
@@ -95,16 +114,25 @@
                             <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
                                 <div class="accordion-body">
                                     <p>
-                                        You are to find the location that closet resembles this place.
+                                        For this task you are to find the statement pieces of the public toilets in Wellington City.<br />
+                                        With this you are to find the "iconic" bathrooms that are shaped like a certain crustacian.<br />
+                                        <br />
                                     </p>
                                     <div class="text-center">
-                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                        @*<img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">*@
                                     </div>
+
                                     <label for="taskThree" class="form-label">What is this location?</label>
-                                    <textarea class="form-control" id="taskThreeTextarea" rows="1"></textarea>
+                                    <textarea class="form-control" id="taskThreeTextarea" rows="1" required></textarea>
+
+                                    <label for="fileUploadThree">Did you find the wharepaku? Upload here:</label><br />
+                                    <input type="file" id="fileUploadThree" name="fileUploadThree" accept="image/*" /><br /><br />
+                                    <div class="invalid-feedback">Please put your answer in</div>
                                 </div>
                             </div>
                         </div>
+
+                        @* Task 4 - Challenge *@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingFour">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour"> Task Four! </button>
@@ -115,13 +143,20 @@
                                         You are to find the location that closet resembles this place.
                                     </p>
                                     <div class="text-center">
-                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                        @*<img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">*@
                                     </div>
+
                                     <label for="taskFour" class="form-label">What is this location?</label>
-                                    <textarea class="form-control" id="taskFourTextarea" rows="1"></textarea>
+                                    <textarea class="form-control" id="taskFourTextarea" rows="1" required></textarea>
+
+                                    <label for="fileUploadTwo">Did you find the Man and his Dog? Upload here:</label><br />
+                                    <input type="file" id="fileUploadTwo" name="fileUploadTwo" accept="image/*" /><br /><br />
+                                    <div class="invalid-feedback">Please put your answer in</div>
                                 </div>
                             </div>
                         </div>
+
+                        @* Task 5 - Challenge *@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingFive">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive"> Task Five! </button>
@@ -129,16 +164,23 @@
                             <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
                                 <div class="accordion-body">
                                     <p>
-                                        You are to find the location that closet resembles this place.
+                                        You are to find the Giant Green Animal, this is a mesh animal that is hanging out looking over the tall black building.<br />
                                     </p>
                                     <div class="text-center">
-                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                        @*<img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">*@
                                     </div>
+
                                     <label for="taskFive" class="form-label">What is this location?</label>
-                                    <textarea class="form-control" id="taskFiveTextarea" rows="1"></textarea>
+                                    <textarea class="form-control" id="taskFiveTextarea" rows="1" required></textarea>
+
+                                    <label for="fileUploadFive">Did you find the Giant Animal? Upload here:</label><br />
+                                    <input type="file" id="fileUploadFive" name="fileUploadFive" accept="image/*" /><br /><br />
+                                    <div class="invalid-feedback">Please put your answer in</div>
                                 </div>
                             </div>
                         </div>
+
+                        @* Task 6 - Timezone Challenge *@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingSix">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix"> Task Six! </button>
@@ -146,16 +188,24 @@
                             <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSix">
                                 <div class="accordion-body">
                                     <p>
-                                        You are to find the location that closet resembles this place.
+                                        You are required to go to TimeZone on Courtney Place, there you are to go to the front counter say you are from MBIE.<br />
+                                        Once done, go to the photobooth and take the funniest photos as a team.
                                     </p>
                                     <div class="text-center">
-                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                        @*<img src="/images/locations/timezone.png" class=" rounded" style="width:400px; height:400px">*@
                                     </div>
-                                    <label for="taskSix" class="form-label">What is this location?</label>
-                                    <textarea class="form-control" id="taskSixTextarea" rows="1"></textarea>
+                                    <label for="taskSix" class="form-label">Task complete upload photo here?</label>
+                                    @*<textarea class="form-control is-invalid" id="taskFiveTextarea" rows="1" required></textarea>*@
+
+                                    @* File upload box *@
+                                    <label for="fileUploadSix">Taken your photos? Upload here:</label><br />
+                                    <input type="file" id="fileUploadSix" name="fileUploadSix" accept="image/*" /><br /><br />
+                                    <div class="invalid-feedback">Please upload your photo</div>
                                 </div>
                             </div>
                         </div>
+
+                        @* Task 7 - Challenge *@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingSeven">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false" aria-controls="panelsStayOpen-collapseSeven"> Task Seven! </button>
@@ -166,13 +216,20 @@
                                         You are to find the location that closet resembles this place.
                                     </p>
                                     <div class="text-center">
-                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                        @*<img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">*@
                                     </div>
+
                                     <label for="taskSeven" class="form-label">What is this location?</label>
-                                    <textarea class="form-control" id="taskSevenTextarea" rows="1"></textarea>
+                                    <textarea class="form-control" id="taskSevenTextarea" rows="1" required></textarea>
+
+                                    <label for="fileUploadTwo">Did you find the Man and his Dog? Upload here:</label><br />
+                                    <input type="file" id="fileUploadTwo" name="fileUploadTwo" accept="image/*" /><br /><br />
+                                    <div class="invalid-feedback">Please put your answer in</div>
                                 </div>
                             </div>
                         </div>
+
+                        @* Task 8 - Challenge *@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingEight">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="false" aria-controls="panelsStayOpen-collapseEight"> Task Eight! </button>
@@ -183,13 +240,20 @@
                                         You are to find the location that closet resembles this place.
                                     </p>
                                     <div class="text-center">
-                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                        @*<img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">*@
                                     </div>
+
                                     <label for="taskEight" class="form-label">What is this location?</label>
-                                    <textarea class="form-control" id="taskEightTextarea" rows="1"></textarea>
+                                    <textarea class="form-control" id="taskEightTextarea" rows="1" required></textarea>
+
+                                    <label for="fileUploadTwo">Did you find the Man and his Dog? Upload here:</label><br />
+                                    <input type="file" id="fileUploadTwo" name="fileUploadTwo" accept="image/*" /><br /><br />
+                                    <div class="invalid-feedback">Please put your answer in</div>
                                 </div>
                             </div>
                         </div>
+
+                        @* Task 9 - Challenge *@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingNine">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseNine" aria-expanded="false" aria-controls="panelsStayOpen-collapseNine"> Task Nine! </button>
@@ -200,13 +264,20 @@
                                         You are to find the location that closet resembles this place.
                                     </p>
                                     <div class="text-center">
-                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                        @*<img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">*@
                                     </div>
+
                                     <label for="taskNine" class="form-label">What is this location?</label>
-                                    <textarea class="form-control" id="taskNineTextarea" rows="1"></textarea>
+                                    <textarea class="form-control" id="taskNineTextarea" rows="1" required></textarea>
+
+                                    <label for="fileUploadTwo">Did you find the Man and his Dog? Upload here:</label><br />
+                                    <input type="file" id="fileUploadTwo" name="fileUploadTwo" accept="image/*" /><br /><br />
+                                    <div class="invalid-feedback">Please put your answer in</div>
                                 </div>
                             </div>
                         </div>
+
+                        @* Task 10 - Challenge *@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingTen">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="false" aria-controls="panelsStayOpen-collapseTen"> Task Ten! </button>
@@ -217,28 +288,15 @@
                                         You are to find the location that closet resembles this place.
                                     </p>
                                     <div class="text-center">
-                                        <img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">
+                                        @*<img src="/images/locations/2022_MS_Ignite_Wallpaper_v01_2160x4558_Mobile_A.png" class="rounded" style="width:400px; height:400px">*@
                                     </div>
+
                                     <label for="taskTen" class="form-label">What is this location?</label>
-                                    <textarea class="form-control" id="taskTenTextarea" rows="1"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        @* Task 11 - Pirate Challenge *@
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingEleven">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEleven" aria-expanded="false" aria-controls="panelsStayOpen-collapseEleven"> Final Task! </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseEleven" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingEleven">
-                                <div class="accordion-body">
-                                    <p>
-                                        You are to find the location that closet resembles this place.
-                                    </p>
-                                    <div class="text-center">
-                                        <img src="/images/locations/timezone.png" class="rounded" style="width:400px; height:400px">
-                                    </div>
-                                    <label for="taskEleven" class="form-label">What is this location?</label>
-                                    <textarea class="form-control" id="taskElevenTextarea" rows="1"></textarea>
+                                    <textarea class="form-control" id="taskTenTextarea" rows="1" required></textarea>
+
+                                    <label for="fileUploadTwo">Did you find the Man and his Dog? Upload here:</label><br />
+                                    <input type="file" id="fileUploadTwo" name="fileUploadTwo" accept="image/*" /><br /><br />
+                                    <div class="invalid-feedback">Please put your answer in</div>
                                 </div>
                             </div>
                         </div>
@@ -257,7 +315,6 @@
 <script>
     function resetForm() {
         document.forms[0].reset();
-        $("input:checkbox").prop('checked', false);
     }
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function () {
@@ -279,4 +336,22 @@
                 }, false)
             })
     })()
+
+    const formInput = document.querySelector(".form-control");
+
+    formButton.disabled = true;
+    formInput.addEventListener("keyup", buttonState);
+
+    function buttonState() {
+        if (document.querySelector(".form").value === "") {
+            formButton.disabled = true;
+        }
+        else {
+            formButton.disabled = false;
+        }
+    }
+
+    formButton.addEventListener("click", () => {
+        console.log()
+    })
 </script>
