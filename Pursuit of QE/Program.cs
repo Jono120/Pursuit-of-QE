@@ -1,44 +1,57 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Azure.Identity;
 using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
+using Microsoft.Extensions.Azure;
 
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-builder.Services.AddRazorPages();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+internal class Program
 {
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    private static async Task Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
+
+        // Add services to the container.
+        builder.Services.AddRazorPages();
+        builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["InstrumentationKey=ed11009d-7470-4892-a65c-3f957c7b9f88;IngestionEndpoint=https://australiaeast-1.in.applicationinsights.azure.com/;LiveEndpoint=https://australiaeast.livediagnostics.monitor.azure.com/"]);
+
+        builder.Services.AddAzureClients(clientBuilder =>
+        {
+            clientBuilder.AddBlobServiceClient(builder.Configuration["AccountEndpoint=https://pursuitofqeaccount.documents.azure.com:443/;AccountKey=BtUpdQNz37oGlgORo5QZgJ8GAk4zNbaq4XMge9ceOj8X5d1K58okWYcbqTyr0WanvIqjOoaUssJmACDbtloCgQ=="], preferMsi: true);
+            clientBuilder.AddQueueServiceClient(builder.Configuration["AccountEndpoint=https://pursuitofqeaccount.documents.azure.com:443/;AccountKey=BtUpdQNz37oGlgORo5QZgJ8GAk4zNbaq4XMge9ceOj8X5d1K58okWYcbqTyr0WanvIqjOoaUssJmACDbtloCgQ=="], preferMsi: true);
+        });
+
+        var blobServiceClient = new BlobServiceClient(new Uri("https://pqestor.blob.core.windows.net/"), new DefaultAzureCredential());
+        string containerName = "quickstartblobs" + Guid.NewGuid().ToString();
+        BlobContainerClient containerClient = await blobServiceClient.CreateBlobContainerAsync(containerName);
+
+        string localPath = "data";
+        Directory.CreateDirectory(localPath);
+        string fileName = "quickstart" + Guid.NewGuid().ToString() + ".txt";
+        string localFilePath = Path.Combine(localPath, fileName);
+
+        await File.WriteAllTextAsync(localPath, "new document");
+        BlobClient blobClient = containerClient.GetBlobClient(fileName);
+        Console.WriteLine("Uploading to blob storage as blob:\n\t {0}\n", blobClient.Uri);
+
+
+
+        var app = builder.Build();
+
+        // Configure the HTTP request pipeline.
+        if (!app.Environment.IsDevelopment())
+        {
+            app.UseExceptionHandler("/Error");
+            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+            app.UseHsts();
+        }
+
+        app.UseHttpsRedirection();
+        app.UseStaticFiles();
+
+        app.UseRouting();
+
+        app.UseAuthorization();
+
+        app.MapRazorPages();
+
+        app.Run();
+    }
 }
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.UseAuthorization();
-
-app.MapRazorPages();
-
-app.Run();
-
-/*
- * https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=visual-studio%2Cmanaged-identity%2Croles-azure-portal%2Csign-in-azure-cli%2Cidentity-visual-studio
- * https://learn.microsoft.com/en-us/visualstudio/azure/vs-azure-tools-connected-services-storage?view=vs-2022
- * https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures
- * https://learn.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase
- * https://learn.microsoft.com/en-us/aspnet/core/security/enforcing-ssl?view=aspnetcore-7.0&tabs=visual-studio
- * https://learn.microsoft.com/en-us/aspnet/core/security/data-protection/introduction?view=aspnetcore-7.0
- * https://learn.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
- * https://learn.microsoft.com/en-us/troubleshoot/developer/webapps/aspnet/development/upload-file-to-web-site
- * https://learn.microsoft.com/en-us/aspnet/web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
- * https://learn.microsoft.com/en-us/aspnet/web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look
- * 
-*/
