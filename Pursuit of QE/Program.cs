@@ -1,6 +1,7 @@
 ﻿using Azure.Identity;
 using Azure.Storage.Blobs;
 using Microsoft.Extensions.Azure;
+using System.Configuration;
 
 internal class Program
 {
@@ -8,15 +9,28 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        // Adding in read for the appsettings.json file
+        var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
+
         // Add services to the container.
         builder.Services.AddRazorPages();
+
+        var connectionString = Configuration.GetConnectionString("StorageAccount")("StorageAccount") ;
+        string containerName = "photos";
+
+        BlobContainerClient container = new BlobContainerClient(connectionString, containerName);
+        container.CreateIfNotExists();
+
+        builder.Services.AddRazorPages();
+
+        // Adding in live telemetry for Applicaiton Insights
         builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["InstrumentationKey=ed11009d-7470-4892-a65c-3f957c7b9f88;IngestionEndpoint=https://australiaeast-1.in.applicationinsights.azure.com/;LiveEndpoint=https://australiaeast.livediagnostics.monitor.azure.com/"]);
 
-        builder.Services.AddAzureClients(clientBuilder =>
-        {
-            clientBuilder.AddBlobServiceClient(builder.Configuration["AccountEndpoint=https://pursuitofqeaccount.documents.azure.com:443/;AccountKey=BtUpdQNz37oGlgORo5QZgJ8GAk4zNbaq4XMge9ceOj8X5d1K58okWYcbqTyr0WanvIqjOoaUssJmACDbtloCgQ=="], preferMsi: true);
-            clientBuilder.AddQueueServiceClient(builder.Configuration["AccountEndpoint=https://pursuitofqeaccount.documents.azure.com:443/;AccountKey=BtUpdQNz37oGlgORo5QZgJ8GAk4zNbaq4XMge9ceOj8X5d1K58okWYcbqTyr0WanvIqjOoaUssJmACDbtloCgQ=="], preferMsi: true);
-        });
+        //builder.Services.AddAzureClients(clientBuilder =>
+        //{
+        //    clientBuilder.AddBlobServiceClient(builder.Configuration["appsettings.json"], preferMsi: true);
+        //    clientBuilder.AddQueueServiceClient(builder.Configuration["appsettings.json"], preferMsi: true);
+        //});
 
         var blobServiceClient = new BlobServiceClient(new Uri("https://pqestor.blob.core.windows.net/"), new DefaultAzureCredential());
         string containerName = "quickstartblobs" + Guid.NewGuid().ToString();
