@@ -20,7 +20,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddRazorPages();
 
 // Adding in live telemetry for Applicaiton Insights
-builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["InstrumentationKey=ed11009d-7470-4892-a65c-3f957c7b9f88;IngestionEndpoint=https://australiaeast-1.in.applicationinsights.azure.com/;LiveEndpoint=https://australiaeast.livediagnostics.monitor.azure.com/"]);
+builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["InstrumentationKey=""]);
 
 //builder.Services.AddAzureClients(clientBuilder =>
 //{
