@@ -20,7 +20,10 @@ builder.Services.AddRazorPages();
 builder.Services.AddRazorPages();
 
 // Adding in live telemetry for Applicaiton Insights
-builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["InstrumentationKey=""]);
+builder.Services.AddApplicationInsightsTelemetry(options =>
+{
+    options.ConnectionString = builder.Configuration["ApplicationInsights:ConnectionString"];
+});
 
 //builder.Services.AddAzureClients(clientBuilder =>
 //{
