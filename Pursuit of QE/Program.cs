@@ -5,44 +5,42 @@ using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Adding in read for the appsettings.json file
-//var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
-
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-//var connectionString = Configuration.GetConnectionString;
-//string containerName = "photos";
+// Access the configuration from the builder
+var configuration = builder.Configuration;
+// Replace "DefaultConnection" with your actual connection string name in appsettings.json
+var connectionString = configuration.GetConnectionString("StorageAccount");
+string containerName = "photos";
 
-//BlobContainerClient container = new BlobContainerClient(connectionString, containerName);
-//container.CreateIfNotExists();
+BlobContainerClient container = new BlobContainerClient(connectionString, containerName);
+container.CreateIfNotExists();
 
-builder.Services.AddRazorPages();
-
-// Adding in live telemetry for Applicaiton Insights
+// Adding in live telemetry for Application Insights
 builder.Services.AddApplicationInsightsTelemetry(options =>
 {
-    options.ConnectionString = builder.Configuration["ApplicationInsights:ConnectionString"];
+    options.ConnectionString = configuration["ApplicationInsights:ConnectionString"];
 });
 
-//builder.Services.AddAzureClients(clientBuilder =>
-//{
-//    clientBuilder.AddBlobServiceClient(builder.Configuration["appsettings.json"], preferMsi: true);
-//    clientBuilder.AddQueueServiceClient(builder.Configuration["appsettings.json"], preferMsi: true);
-//});
+builder.Services.AddAzureClients(clientBuilder =>
+{
+    clientBuilder.AddBlobServiceClient(configuration["appsettings.json"], preferMsi: true);
+    clientBuilder.AddQueueServiceClient(configuration["appsettings.json"], preferMsi: true);
+});
 
-//var blobServiceClient = new BlobServiceClient(new Uri("https://pqestor.blob.core.windows.net/"), new DefaultAzureCredential());
-//string containerName = "quickstartblobs" + Guid.NewGuid().ToString();
-//BlobContainerClient containerClient = await blobServiceClient.CreateBlobContainerAsync(containerName);
+var blobServiceClient = new BlobServiceClient(new Uri("https://pqestor.blob.core.windows.net/"), new DefaultAzureCredential());
+string containerName2 = "quickstartblobs" + Guid.NewGuid().ToString();
+BlobContainerClient containerClient = await blobServiceClient.CreateBlobContainerAsync(containerName2);
 
-//string localPath = "data";
-//Directory.CreateDirectory(localPath);
-//string fileName = "quickstart" + Guid.NewGuid().ToString() + ".txt";
-//string localFilePath = Path.Combine(localPath, fileName);
+string localPath = "data";
+Directory.CreateDirectory(localPath);
+string fileName = "quickstart" + Guid.NewGuid().ToString() + ".txt";
+string localFilePath = Path.Combine(localPath, fileName);
 
-//await File.WriteAllTextAsync(localPath, "new document");
-//BlobClient blobClient = containerClient.GetBlobClient(fileName);
-//Console.WriteLine("Uploading to blob storage as blob:\n\t {0}\n", blobClient.Uri);
+await File.WriteAllTextAsync(localFilePath, "new document");
+BlobClient blobClient = containerClient.GetBlobClient(fileName);
+Console.WriteLine("Uploading to blob storage as blob:\n\t {0}\n", blobClient.Uri);
 
 
 
